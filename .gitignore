@@ -1,0 +1,18 @@
+## .NET build output
+bin/
+obj/
+
+## Visual Studio local state (per-machine, not project source)
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VS Code local state
+.idea/
+.vscode/
+
+## Misc OS files
+.DS_Store
+Thumbs.db

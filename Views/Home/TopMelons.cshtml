@@ -1,11 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Top Melons";
     var melons = (ViewData["Melons"] as List<Melon>)!;
+    var name = @Context.Session.GetString("name");
 }
 
-<div class="melon-div">
-    <h3>@melons[0].Name</h3>
-    <h2>Loved @melons[0].NumLoves times.</h2>
-    <img src="@melons[0].Img" alt="@melons[0].Name" />
-</div>
+<h1>Welcome @name!</h1>
+
+@foreach (var melon in melons)
+{
+    <div class="melon-div">
+        <h3>@name, this is a @melon.Name</h3>
+        <h2>Loved @melon.NumLoves times.</h2>
+        <img src="@melon.Img" alt="@melon.Name" />
+    </div>
+}
+
+<form method="post" action="/love-melon">
+    <label for="melon-select">Pick your favorite melon:</label>
+    <select id="melon-select" name="melonName">
+        @foreach (var melon in melons)
+        {
+            <option value="@melon.Name">@melon.Name</option>
+        }
+    </select>
+    <input type="submit" value="Love this melon" />
+</form>
 
