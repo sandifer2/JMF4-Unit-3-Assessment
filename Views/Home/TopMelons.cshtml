@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Top Melons";
+    var melons = (ViewData["Melons"] as List<Melon>)!;
+}
+
+<div class="melon-div">
+    <h3>@melons[0].Name</h3>
+    <h2>Loved @melons[0].NumLoves times.</h2>
+    <img src="@melons[0].Img" alt="@melons[0].Name" />
+</div>
+
